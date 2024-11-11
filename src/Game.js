@@ -2,6 +2,7 @@ import Ball from "./Ball.js"
 import GameObject from "./GameObject.js"
 import Input from "./Input.js"
 import Player from "./Player.js"
+import Player2 from "./Player2.js"
 import Enemy  from "./Enemy.js"
 
 export default class Game {
@@ -10,6 +11,7 @@ export default class Game {
         this.height = height
         this.input = new Input(this)
         this.player = new Player(0, 0, 50, 50, "green", 0, this)
+        this.player2 = new Player2(804, 430, 50, 50, "blue", 0, this)
         this.enemy = new Enemy (754, 380, 100, 100, "red", 0.8, this)
         console.log("Ny instans av game", this.width)
         this.x = 0
@@ -27,6 +29,7 @@ export default class Game {
         this.ball2.update(deltaTime)
         */
         this.player.update(deltaTime)
+        this.player2.update(deltaTime)
         this.enemy.update(deltaTime)
     }
 
@@ -38,6 +41,7 @@ export default class Game {
         this.ball2.draw(ctx)
         */
         this.player.draw(ctx)
+        this.player2.draw(ctx)
         this.enemy.draw(ctx)
     }
 }

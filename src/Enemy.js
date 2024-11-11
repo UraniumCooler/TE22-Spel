@@ -25,6 +25,5 @@ export default class Enemy extends GameObject {
         } else if (this.diffY == 25) {
             
         }
-
     }
 }

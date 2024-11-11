@@ -16,9 +16,9 @@ const setup = (canvas) => {
         game.update(deltaTime)
         game.draw(ctx)
         requestAnimationFrame(animate)
-      }
+    }
     
-      animate(0)
+    animate(0)
 }
 
 export { setup }
