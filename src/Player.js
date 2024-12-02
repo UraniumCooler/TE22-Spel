@@ -54,15 +54,28 @@ export default class Player extends GameObject {
             }
         }
 
-        if (this.otherPlayer) {
+        /* if (this.otherPlayer) {
             this.collisions(this.otherPlayer)
-        }
+        } */
 
         if (this.x > this.game.enemy.x - this.width && this.x < this.game.enemy.x + this.game.enemy.width && this.y > this.game.enemy.y - this.height && this.y < this.game.enemy.y + this.game.enemy.height) {
             this.x = 0
             this.y = 0
             this.speedX = 0
             this.speedY = 0
+        }
+
+        if (this.game.wall.checkCollision(this)) {
+            if (this.speedX > 0) {
+                this.x = this.game.wall.x - this.width
+            } else if (this.speedX < 0) {
+                this.x = this.game.wall.x + this.game.wall.width
+            } if (this.speedY > 0) {
+                this.y = this.game.wall.y - this.height
+            } else if (this.speedY < 0) {
+                this.y = this.game.wall.y + this.game.wall.height
+            } 
+            this.speedX = 0
         }
 
         this.borderCollision() 
@@ -81,7 +94,7 @@ export default class Player extends GameObject {
           }
     }
 
-    collisions (otherPlayer) {
+    /* collisions (otherPlayer) {
         if (this.x < otherPlayer.x + otherPlayer.width && 
             this.x + this.width > otherPlayer.x &&
             this.y < otherPlayer.y + otherPlayer.height && 
@@ -107,6 +120,8 @@ export default class Player extends GameObject {
                 }
             }
     }
+    */
+    
 
     borderCollision () {
         if (this.y < -8) {

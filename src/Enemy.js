@@ -23,12 +23,12 @@ export default class Enemy extends GameObject {
     update(deltaTime) {
         this.player1DiffX = this.x + this.game.player.x;
         this.player1DiffY = this.y + this.game.player.y;
-        this.player2DiffX = this.x + this.game.player2.x;
-        this.player2DiffY = this.y + this.game.player2.y;
+        //this.player2DiffX = this.x + this.game.player2.x;
+        //this.player2DiffY = this.y + this.game.player2.y;
         this.player1Sum = (this.player1DiffX * this.player1DiffX) + (this.player1DiffY * this.player1DiffY)
-        this.player2Sum = (this.player2DiffX * this.player2DiffX) + (this.player2DiffY * this.player2DiffY)
+        //this.player2Sum = (this.player2DiffX * this.player2DiffX) + (this.player2DiffY * this.player2DiffY)
         this.player1Distance = Math.sqrt(this.player1Sum)
-        this.player2Distance = Math.sqrt(this.player2Sum)
+        //this.player2Distance = Math.sqrt(this.player2Sum)
 
         if (this.player1Distance > this.player2Distance) {
             this.targetPlayer = this.game.player
@@ -58,5 +58,6 @@ export default class Enemy extends GameObject {
 
     draw(ctx) {
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
+        
     }
 }

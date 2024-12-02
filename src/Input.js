@@ -7,7 +7,7 @@ export default class Input {
 
         window.addEventListener("keydown", (event) => {
             this.keys.add(event.key)
-            console.log(event.key)
+            //console.log(event.key)
         })
 
         window.addEventListener("keyup", (event) => {
