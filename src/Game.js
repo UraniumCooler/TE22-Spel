@@ -15,7 +15,7 @@ export default class Game {
         this.player = new Player(0, 0, 50, 50, "green", 0, this)
         this.wall = new Wall(0, 0, 280, 100, "red", 0, this)
         //this.player2 = new Player2(804, 430, 50, 50, "blue", 0, this)
-        this.enemy = new Enemy (754, 380, 100, 100, "red", 0.3, this)
+        this.enemy = new Enemy (754, 380, 100, 100, "red", 0, this)
         console.log("Ny instans av game", this.width)
         this.x = 0
         /*this.box = new GameObject(0, 0, 240, 240, "purple", 0.1)
@@ -45,7 +45,7 @@ export default class Game {
         */
         this.player.draw(ctx)
         //this.player2.draw(ctx)
-        this.enemy.draw(ctx)
+        // this.enemy.draw(ctx)
         this.wall.draw(ctx)
     }
 }
