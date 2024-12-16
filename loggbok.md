@@ -15,3 +15,12 @@ Finns det nåt som hindrar dig?
 Tror inte det???
 Hjälp med?
 N/A
+
+16 dec, vad gjorde du sist?
+den fungerar ish
+Vad ska du göra idag?
+den ska fungera, men jag gjorde så min karaktär inte doom slidade istället
+Finns det nåt som hindrar dig? 
+Tror inte det???
+Hjälp med?
+N/A

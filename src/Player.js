@@ -25,6 +25,7 @@ export default class Player extends GameObject {
     }
 
     update(deltaTime) {
+
         if (this.game.input.keys.has("ArrowLeft")) {
             //console.log("pil vänster")
             this.speedX -= this.maxSpeedX
@@ -53,6 +54,12 @@ export default class Player extends GameObject {
                 this.speedY += this.maxSpeedY/1.8
             }
         }
+        if (this.speedX < 0.15 && this.speedX > -0.15) {
+            this.speedX = 0
+        }
+        if (this.speedY < 0.15 && this.speedY > -0.15) {
+            this.speedY = 0
+        }
 
         /* if (this.otherPlayer) {
             this.collisions(this.otherPlayer)
@@ -75,7 +82,7 @@ export default class Player extends GameObject {
             } else if (this.speedY < 0) {
                 this.y = this.game.wall.y + this.game.wall.height
             } 
-            this.speedX = 0
+            this.speedX = -0.2
         }
 
         this.borderCollision() 
