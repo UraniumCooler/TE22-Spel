@@ -5,6 +5,7 @@ import Player from "./Player.js"
 // import Player2 from "./Player2.js"
 import Enemy  from "./Enemy.js"
 import Wall from "./Wall.js"
+import Camera from "./Camera.js"
 
 export default class Game {
     constructor(width, height) {
@@ -13,6 +14,7 @@ export default class Game {
         this.canvas = { width: 854, height: 480 };
         this.input = new Input(this)
         this.player = new Player(0, 0, 50, 50, "green", 0, this)
+        this.camera = new Camera(this, this.player.x, this.player.y, 0, 100)
         this.wall = new Wall(0, 0, 280, 100, "red", 0, this)
         //this.player2 = new Player2(804, 430, 50, 50, "blue", 0, this)
         this.enemy = new Enemy (754, 380, 100, 100, "red", 0, this)
@@ -47,5 +49,11 @@ export default class Game {
         //this.player2.draw(ctx)
         // this.enemy.draw(ctx)
         this.wall.draw(ctx)
+        this.camera.apply(ctx)
+        this.player.draw(context, this.camera.x, this.camera.y)
+         this.enemies.forEach((enemy) =>
+          enemy.draw(context, this.camera.x, this.camera.y)
+        )
+        this.camera.reset(context)
     }
 }

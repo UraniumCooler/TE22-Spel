@@ -9,7 +9,7 @@ export default class Player extends GameObject {
         this.overlapY
 
         this.image = new Image()
-        this.image.src = "src/assets/DinoSprites - vita.png"
+        this.image.src = "src/assets/SpriteSheet.png"
 
         this.sWidth = 100
         this.frameX = 0
@@ -167,8 +167,8 @@ export default class Player extends GameObject {
     ctx.drawImage(this.image,
         0,
         0,
-        21,
-        21,
+        64,
+        64,
         this.x,
         this.y,
         this.width,
