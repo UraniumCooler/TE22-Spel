@@ -17,7 +17,7 @@ export default class Enemy extends GameObject {
         this.targetPlayer
 
         this.image = new Image()
-        this.image.src = "src/assets/erubdor.png"
+        this.image.src = "src/assets/pixil-frame-0 (min).png"
     }
 
     update(deltaTime) {
@@ -37,7 +37,7 @@ export default class Enemy extends GameObject {
         } else {
             this.targetPlayer = this.game.player2
         }
-
+        
         this.diffX = Math.floor(this.targetPlayer.x - this.x);
         this.diffY = Math.floor(this.targetPlayer.y - this.y);
         if (this.diffX > 25) {
@@ -58,6 +58,5 @@ export default class Enemy extends GameObject {
 
     draw(ctx) {
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
-        
     }
 }

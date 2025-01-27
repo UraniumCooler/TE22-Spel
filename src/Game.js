@@ -5,19 +5,21 @@ import Player from "./Player.js"
 // import Player2 from "./Player2.js"
 import Enemy  from "./Enemy.js"
 import Wall from "./Wall.js"
-import Camera from "./Camera.js"
+import Background from "./Background.js"
 
 export default class Game {
     constructor(width, height) {
         this.width = width
         this.height = height
-        this.canvas = { width: 854, height: 480 };
+        this.canvas = { width: 854, height: 480 }
         this.input = new Input(this)
+        this.Background = new Background(0,0,854,480,"blue", 0, this)
         this.player = new Player(0, 0, 50, 50, "green", 0, this)
-        this.camera = new Camera(this, this.player.x, this.player.y, 0, 100)
-        this.wall = new Wall(0, 0, 280, 100, "red", 0, this)
+        this.wall = new Wall(0, 0, 280, 100, "transparent", 0, this)
+        this.wall2 = new Wall(0,0, 280, 100, "transparent", 0, this)
+        this.wall3 = new Wall(0,0, 280, 100, "transparent", 0, this)
         //this.player2 = new Player2(804, 430, 50, 50, "blue", 0, this)
-        this.enemy = new Enemy (754, 380, 100, 100, "red", 0, this)
+        this.enemy = new Enemy (754, 380, 100, 100, "red", 1, this)
         console.log("Ny instans av game", this.width)
         this.x = 0
         /*this.box = new GameObject(0, 0, 240, 240, "purple", 0.1)
@@ -45,15 +47,13 @@ export default class Game {
         this.ball.draw(ctx)
         this.ball2.draw(ctx)
         */
+        this.Background.draw(ctx)
         this.player.draw(ctx)
         //this.player2.draw(ctx)
-        // this.enemy.draw(ctx)
+        this.enemy.draw(ctx)
         this.wall.draw(ctx)
-        this.camera.apply(ctx)
-        this.player.draw(context, this.camera.x, this.camera.y)
-         this.enemies.forEach((enemy) =>
-          enemy.draw(context, this.camera.x, this.camera.y)
-        )
-        this.camera.reset(context)
+        this.wall2.draw(ctx)
+        this.wall3.draw(ctx)
+        this.player.draw(ctx)
     }
 }

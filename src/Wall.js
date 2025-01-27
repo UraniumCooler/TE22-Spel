@@ -5,6 +5,9 @@ export default class Wall extends GameObject {
         super(x, y, width, height, color, 0, game)
         this.x = Math.random() * (game.canvas.width - this.width)
         this.y = Math.random() * (game.canvas.height - this.height)
+
+        this.image = new Image()
+        this.image.src = "src/assets/Bord v2.png"
     }
 
     update (deltaTime) {
@@ -17,8 +20,18 @@ export default class Wall extends GameObject {
     draw (ctx) {
         ctx.fillStyle = this.color
         ctx.fillRect(this.x, this.y, this.width, this.height)
-    }
 
+        ctx.drawImage(this.image,
+            0,
+            0,
+            268,
+            60,
+            this.x,
+            this.y,
+            this.width,
+            this.height )
+        }
+    
     checkCollision(other) {
         return (
             this.x < other.x + other.width &&
