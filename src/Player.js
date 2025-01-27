@@ -85,6 +85,31 @@ export default class Player extends GameObject {
             this.speedX = -0.2
         }
 
+        if (this.game.wall2.checkCollision(this)) {
+            if (this.speedX > 0) {
+                this.x = this.game.wall2.x - this.width
+            } else if (this.speedX < 0) {
+                this.x = this.game.wall2.x + this.game.wall2.width
+            } if (this.speedY > 0) {
+                this.y = this.game.wall2.y - this.height
+            } else if (this.speedY < 0) {
+                this.y = this.game.wall2.y + this.game.wall2.height
+            } 
+            this.speedX = -0.2
+        }
+
+        if (this.game.wall3.checkCollision(this)) {
+            if (this.speedX > 0) {
+                this.x = this.game.wall3.x - this.width
+            } else if (this.speedX < 0) {
+                this.x = this.game.wall3.x + this.game.wall3.width
+            } if (this.speedY > 0) {
+                this.y = this.game.wall3.y - this.height
+            } else if (this.speedY < 0) {
+                this.y = this.game.wall3.y + this.game.wall3.height
+            } 
+            this.speedX = -0.2
+        }
         this.borderCollision() 
 
         this.x += this.speedX
