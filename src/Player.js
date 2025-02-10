@@ -9,7 +9,7 @@ export default class Player extends GameObject {
         this.overlapY
 
         this.image = new Image()
-        this.image.src = "src/assets/SpriteSheet.png"
+        this.image.src = "./src/assets/SpriteSheet.png"
 
         this.sWidth = 100
         this.frameX = 0

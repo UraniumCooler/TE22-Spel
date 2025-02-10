@@ -7,7 +7,7 @@ export default class Wall extends GameObject {
         this.y = Math.random() * (game.canvas.height - this.height)
 
         this.image = new Image()
-        this.image.src = "src/assets/Bord v2.png"
+        this.image.src = "./src/assets/Bord v2.png"
     }
 
     update (deltaTime) {

@@ -5,7 +5,7 @@ export default class Player extends GameObject {
         super(x, y, width, height, color, speed)
 
         this.image = new Image()
-        this.image.src = "src/assets/Map.png"
+        this.image.src = "./src/assets/Map.png"
     
     }
 

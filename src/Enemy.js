@@ -17,7 +17,7 @@ export default class Enemy extends GameObject {
         this.targetPlayer
 
         this.image = new Image()
-        this.image.src = "src/assets/pixil-frame-0 (min).png"
+        this.image.src = "./src/assets/pixil-frame-0 (min).png"
     }
 
     update(deltaTime) {
