@@ -20,6 +20,9 @@ export default class Game {
         this.wall3 = new Wall(0,0, 280, 100, "transparent", 0, this)
         //this.player2 = new Player2(804, 430, 50, 50, "blue", 0, this)
         this.enemy = new Enemy (754, 380, 100, 100, "red", 1, this)
+
+        this.startTime = Date.now()
+        this.elapsedTime = 0
         console.log("Ny instans av game", this.width)
         this.x = 0
         /*this.box = new GameObject(0, 0, 240, 240, "purple", 0.1)
@@ -35,6 +38,7 @@ export default class Game {
         this.ball.update(deltaTime)
         this.ball2.update(deltaTime)
         */
+        this.elapsedTime = Math.floor((Date.now()-this.startTime) / 1000)
         this.player.update(deltaTime)
         //this.player2.update(deltaTime)
         this.enemy.update(deltaTime)
@@ -55,5 +59,9 @@ export default class Game {
         this.wall2.draw(ctx)
         this.wall3.draw(ctx)
         this.player.draw(ctx)
+
+        ctx.fillStyle = "white"
+        ctx.font = "20px Arial"
+        ctx.fillText(`Time: ${this.elapsedTime}s`, 10, 20)
     }
 }

@@ -1,4 +1,4 @@
-import GameObject from "./GameObject";
+import GameObject from "./GameObject"
 
 export default class Player extends GameObject {
     constructor(x, y, width, height, color, speed, game) {
@@ -155,25 +155,29 @@ export default class Player extends GameObject {
 
     wallCollision(wall) {
         if (wall.checkCollision(this)) {
-            const overlapX = Math.min(this.x + this.width - wall.x, wall.x + wall.width - this.x)
-            const overlapY = Math.min(this.y + this.height - wall.y, wall.y + wall.height - this.y)
+            const overlapX = Math.min(this.x + this.width - wall.x, wall.x + wall.width - this.x);
+            const overlapY = Math.min(this.y + this.height - wall.y, wall.y + wall.height - this.y);
     
             if (overlapX < overlapY) {
-              
+                
                 if (this.speedX > 0) {
+                    
                     this.x = wall.x - this.width
                 } else {
+                    
                     this.x = wall.x + wall.width
                 }
-                this.speedX = -0.2; 
+                this.speedX *= -0.5
             } else {
                 
                 if (this.speedY > 0) {
+                    
                     this.y = wall.y - this.height
                 } else {
+                    
                     this.y = wall.y + wall.height
                 }
-                this.speedY = -0.2
+                this.speedY *= -0.5
             }
         }
     }
