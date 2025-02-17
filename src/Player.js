@@ -165,7 +165,7 @@ export default class Player extends GameObject {
                 } else {
                     this.x = wall.x + wall.width
                 }
-                this.speedX = 0; 
+                this.speedX = -0.2; 
             } else {
                 
                 if (this.speedY > 0) {
@@ -173,7 +173,7 @@ export default class Player extends GameObject {
                 } else {
                     this.y = wall.y + wall.height
                 }
-                this.speedY = 0
+                this.speedY = -0.2
             }
         }
     }
