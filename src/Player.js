@@ -77,9 +77,9 @@ export default class Player extends GameObject {
         this.x += this.speedX
         this.y += this.speedY
 
-        this.handleWallCollision(this.game.wall)
-        this.handleWallCollision(this.game.wall2)
-        this.handleWallCollision(this.game.wall3)
+        this.wallCollision(this.game.wall)
+        this.wallCollision(this.game.wall2)
+        this.wallCollision(this.game.wall3)
 
         if (this.timer > this.interval) {
             this.frameX++
