@@ -72,48 +72,14 @@ export default class Player extends GameObject {
             this.speedY = 0
         }
 
-        if (this.game.wall.checkCollision(this)) {
-            if (this.speedX > 0) {
-                this.x = this.game.wall.x - this.width
-            } else if (this.speedX < 0) {
-                this.x = this.game.wall.x + this.game.wall.width
-            } if (this.speedY > 0) {
-                this.y = this.game.wall.y - this.height
-            } else if (this.speedY < 0) {
-                this.y = this.game.wall.y + this.game.wall.height
-            } 
-            this.speedX = -0.2
-        }
-
-        if (this.game.wall2.checkCollision(this)) {
-            if (this.speedX > 0) {
-                this.x = this.game.wall2.x - this.width
-            } else if (this.speedX < 0) {
-                this.x = this.game.wall2.x + this.game.wall2.width
-            } if (this.speedY > 0) {
-                this.y = this.game.wall2.y - this.height
-            } else if (this.speedY < 0) {
-                this.y = this.game.wall2.y + this.game.wall2.height
-            } 
-            this.speedX = -0.2
-        }
-
-        if (this.game.wall3.checkCollision(this)) {
-            if (this.speedX > 0) {
-                this.x = this.game.wall3.x - this.width
-            } else if (this.speedX < 0) {
-                this.x = this.game.wall3.x + this.game.wall3.width
-            } if (this.speedY > 0) {
-                this.y = this.game.wall3.y - this.height
-            } else if (this.speedY < 0) {
-                this.y = this.game.wall3.y + this.game.wall3.height
-            } 
-            this.speedX = -0.2
-        }
         this.borderCollision() 
 
         this.x += this.speedX
         this.y += this.speedY
+
+        this.handleWallCollision(this.game.wall)
+        this.handleWallCollision(this.game.wall2)
+        this.handleWallCollision(this.game.wall3)
 
         if (this.timer > this.interval) {
             this.frameX++
@@ -184,6 +150,31 @@ export default class Player extends GameObject {
         } else if (this.x > this.game.width - this.width) {
             this.x = 803.9
             this.speedX = 0
+        }
+    }
+
+    wallCollision(wall) {
+        if (wall.checkCollision(this)) {
+            const overlapX = Math.min(this.x + this.width - wall.x, wall.x + wall.width - this.x)
+            const overlapY = Math.min(this.y + this.height - wall.y, wall.y + wall.height - this.y)
+    
+            if (overlapX < overlapY) {
+              
+                if (this.speedX > 0) {
+                    this.x = wall.x - this.width
+                } else {
+                    this.x = wall.x + wall.width
+                }
+                this.speedX = 0; 
+            } else {
+                
+                if (this.speedY > 0) {
+                    this.y = wall.y - this.height
+                } else {
+                    this.y = wall.y + wall.height
+                }
+                this.speedY = 0
+            }
         }
     }
 
