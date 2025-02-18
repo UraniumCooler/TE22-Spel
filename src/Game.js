@@ -27,6 +27,9 @@ export default class Game {
         this.x = 0
         this.gameOverImage = new Image()
         this.gameOverImage.src = "./assets/spookyAaahJumpScare.png"
+        this.gameOverImage.onload = () => {
+            console.log("Game Over Image loaded successfully")
+        }
         this.gameOver = false
         /*this.box = new GameObject(0, 0, 240, 240, "purple", 0.1)
         this.box2 = new GameObject(614, 240, 240, 240, "pink", -0.1)
@@ -63,7 +66,6 @@ export default class Game {
         this.wall.draw(ctx)
         this.wall2.draw(ctx)
         this.wall3.draw(ctx)
-        this.player.draw(ctx)
 
         if (this.gameOver) {
             this.drawGameOver(ctx)
