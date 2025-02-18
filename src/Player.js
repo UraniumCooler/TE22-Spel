@@ -66,10 +66,7 @@ export default class Player extends GameObject {
         } */
 
         if (this.x > this.game.enemy.x - this.width && this.x < this.game.enemy.x + this.game.enemy.width && this.y > this.game.enemy.y - this.height && this.y < this.game.enemy.y + this.game.enemy.height) {
-            this.x = 0
-            this.y = 0
-            this.speedX = 0
-            this.speedY = 0
+            this.game.gameOver = true
         }
 
         this.borderCollision() 
