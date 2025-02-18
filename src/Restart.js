@@ -1,6 +1,6 @@
 import GameObject from "./GameObject"
 
-export default class Restart extends GameObject {
+export default class Restart {
     constructor(game) {
         this.game = game
         this.keys = new Set()
